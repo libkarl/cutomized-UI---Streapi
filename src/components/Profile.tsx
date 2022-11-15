@@ -3,7 +3,7 @@ import { getCurrentUser } from "../services/auth.service";
 
 const Profile: React.FC = () => {
   const currentUser = getCurrentUser();
-
+  console.log(currentUser);
   return (
     <div className="container">
       <header className="jumbotron">
@@ -13,7 +13,7 @@ const Profile: React.FC = () => {
       </header>
       <p>
         <strong>Token: </strong>
-        {currentUser.Token.substring(0, 70)}
+        {currentUser.jwt.slice(-50)}
       </p>
       <p>
         <strong>Id:</strong> {currentUser.id}

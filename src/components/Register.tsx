@@ -12,6 +12,7 @@ const Register: React.FC = () => {
   const initialValues: IUser = {
     firstname: "",
     lastname: "",
+    email: "",
     username: "",
     password: "",
   };
@@ -38,11 +39,11 @@ const Register: React.FC = () => {
   });
 
   const handleRegister = (formValue: IUser) => {
-    const { username, password, firstname, lastname } = formValue;
+    const { username, password, email, firstname, lastname } = formValue;
 
-    register(firstname, lastname, username, password).then(
+    register(firstname, lastname, email, username, password).then(
       (response) => {
-        setMessage(response.data.message);
+        setMessage("Successfully registered");
         setSuccessful(true);
       },
       (error) => {
@@ -93,6 +94,15 @@ const Register: React.FC = () => {
                   <Field name="lastname" type="text" className="form-control" />
                   <ErrorMessage
                     name="lastname"
+                    component="div"
+                    className="alert alert-danger"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email"> Email </label>
+                  <Field name="email" type="text" className="form-control" />
+                  <ErrorMessage
+                    name="email"
                     component="div"
                     className="alert alert-danger"
                   />

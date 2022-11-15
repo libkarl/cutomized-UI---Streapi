@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
     if (user) {
       setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("MODERATOR"));
+      setShowModeratorBoard(user.roles.includes("Authenticated"));
       setShowAdminBoard(user.roles.includes("ADMIN"));
     }
 

@@ -8,7 +8,8 @@ const Home: React.FC = () => {
   useEffect(() => {
     getPublicContent().then(
       (response) => {
-        setContent(response.data);
+        console.log(response.data.data);
+        setContent(response.data.data[1].attributes.title);
       },
       (error) => {
         const _content =
